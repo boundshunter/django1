@@ -1,0 +1,46 @@
+python创建项目后，创建app
+
+创建app， app为 MTV 结构
+python3.6 manage.py startapp cmdb 每个app为一个子模块
+python3.6 manage.py startapp openstack 每个app为一个子模块
+python3.6 manage.py startapp xxoo 每个app为一个子模块
+
+
+app:
+    配置
+        migrations  数据修改表结构
+        admin       Django为我们提供的后台管理
+        apps        配置当前的app
+        models      ORM，写制定的类，通过命令可以创建数据库结构
+
+    代码
+        views       业务逻辑代码
+
+
+
+1、配置模板路径
+    TEMPLATES = [
+        {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates',
+            # 指定去templates目录下找文件，默认为空列表，需要手动添加
+            'DIRS': [os.path.join(BASE_DIR,  'templates')],
+            'APP_DIRS': True,
+            'OPTIONS': {
+                'context_processors': [
+                    'django.template.context_processors.debug',
+                    'django.template.context_processors.request',
+                    'django.contrib.auth.context_processors.auth',
+                    'django.contrib.messages.context_processors.messages',
+                ],
+            },
+        },
+    ]
+
+2、配置静态目录
+    # 此处需要手动指定，如下固定格式，指定静态文件查找路径
+    静态目录是什么就写什么，此处静态目录是static，先固定写死static
+    tuple格式
+
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR,'static'),
+    )
